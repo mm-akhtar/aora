@@ -38,7 +38,7 @@ const VideoCard: FC<VideoCardProps> = ({ video }) => {
       </View>
       {play ? (
         <Video
-          source={{ uri: 'http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4' }}
+          source={{ uri: videoUrl }}
           className="w-full h-60 rounded-xl mt-3"
           resizeMode={ResizeMode.CONTAIN}
           useNativeControls
@@ -49,6 +49,7 @@ const VideoCard: FC<VideoCardProps> = ({ video }) => {
               setPlay(false)
             }
           }}
+          onTouchEnd={() => setPlay(false)}
         />
       ) : (
         <TouchableOpacity
